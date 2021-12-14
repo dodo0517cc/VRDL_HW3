@@ -36,8 +36,13 @@ Step9: Specificy the datasets. Use DefaultPredictor to predict the results.
 
 Step10: Get the results in cocoformat using cocoevalutor.
 
+    predictor = DefaultPredictor(cfg)
+    evaluator = COCOEvaluator("nucleus_test", cfg, False, output_dir="./output_test/")
+    val_loader = build_detection_test_loader(cfg, "nucleus_test")
+    inference_on_dataset(predictor.model, val_loader, evaluator)
+
 Step11: Draw the results to check the correctness and save them.
 
 ![image](https://user-images.githubusercontent.com/77607182/145957936-28cb8d65-baee-43f7-8e9e-baab19cae9f3.png)
 
-
+Step12: Cause the category of the results is automatically set to 0 and the image ids start in 0, we need to use ans.py to turn the catefory to 1 and plus 1 for all the image ids to submit the format for the homework. 
