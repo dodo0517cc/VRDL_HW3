@@ -3,6 +3,21 @@
 weights（model_final.pth)：https://drive.google.com/drive/folders/18wH4QouJC624e1c8YG0p9_dUsj6jptJH?usp=sharing
 (Create a folder named output_test to save our results. Put the weight in the output_test file)
 
+## Introduction
+
+Instance segmentation includes classification, semantic segmentation and object detection. It is an extension of object detection, where a binary mask (i.e. object vs. background) is associated with every bounding box. The difference between semantic segmentation and instance segmentation is that semantic segmentation does not distinguish different instances belonging to the same category, but instance segmentation distinguishes different instances of the same type. For example, people below in the left-hand side are all marked in red, but are marked in different colors to distinguish different people in the right-hand side.
+
+<img width="705" alt="image" src="https://user-images.githubusercontent.com/77607182/146368297-036d1106-e5ec-4c0f-b9cc-830ffdcb9544.png">
+
+The current instance segmentation methods are divided into four types: top-down method based on object detection, bottom-up method based on semantic segmentation, integrated top-down and bottom-up, direct segmentation method, while the early instance segmentation method is biased towards top-down , Bottom-up.
+In today’s homework, I will use Mask R-CNN for my model. It’s a top- down method based on object detection. The top-down method is to first obtain the object detection frame, and then perform mask prediction on the pixels in the frame.
+
+## Model
+
+The number of training images is small, only 24 images. It isn’t easy to train without using a pretrained model. As a result, I use the Mask R-CNN X101-FPN model to fine-tune the dataset. The table below is the results on the github of detectron2. Though Mask R-CNN X101-FPN model takes longer time to train, it can get a better performance.
+
+<img width="392" alt="image" src="https://user-images.githubusercontent.com/77607182/146368581-84e4eb54-cc98-4cbd-96ad-29de9a92f4e3.png">
+
 ## Install Detectron2
 
 STEP1: Install some requirements
@@ -52,3 +67,10 @@ Step11: Draw the results to check the correctness and save them.
 ## Post-Processing
 
 Step12: Cause the category of the results is automatically set to 0 and the image ids start in 0, we need to use ans.py to turn the catefory to 1 and plus 1 for all the image ids to submit the format for the homework. 
+
+## Table of experimental results
+
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/77607182/146368770-245acd19-977d-4620-8ca6-8ebec1ac731e.png">
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/77607182/146368805-f95436c5-a271-4739-93a3-5b6933741bc5.png">
+
+
