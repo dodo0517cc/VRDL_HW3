@@ -1,4 +1,4 @@
-# VRDL_HW3
+# VRDL_HW3 (Instance segmentation)
 
 weights（model_final.pth)：https://drive.google.com/drive/folders/18wH4QouJC624e1c8YG0p9_dUsj6jptJH?usp=sharing
 (Create a folder named output_test to save our results. Put the weight in the output_test file)
